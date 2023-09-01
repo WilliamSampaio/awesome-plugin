@@ -47,6 +47,10 @@ if (!class_exists('AwesomePlugin')) {
             // instancia o post type
             require_once(AWESOME_PLUGIN_PATH . 'post-types/class.awesome-plugin-cpt.php');
             $AwesomePlugin_Post_Type = new AwesomePlugin_Post_Type();
+
+            // instancia a classe de settings
+            require_once(AWESOME_PLUGIN_PATH . 'class.mv-slider-settings.php');
+            $AwesomePlugin_Settings = new AwesomePlugin_Settings();
         }
 
         // define constantes utilizadas no plugin
