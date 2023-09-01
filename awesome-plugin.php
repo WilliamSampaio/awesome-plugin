@@ -33,11 +33,17 @@ if (!defined('ABSPATH')) exit;
 
 // Se a classe NÃO existe declara ela
 if (!class_exists('AwesomePlugin')) {
+
+    // Classe principal do plugin
     class AwesomePlugin
     {
         function __construct()
         {
             $this->define_constants();
+
+            // instancia o post type
+            require_once(AWESOME_PLUGIN_PATH . 'post-types/class.awesome-plugin-cpt.php');
+            $AwesomePlugin_Post_Type = new AwesomePlugin_Post_Type();
         }
 
         // define constantes utilizadas no plugin
@@ -56,6 +62,9 @@ if (!class_exists('AwesomePlugin')) {
         public static function deactivate()
         {
             flush_rewrite_rules();
+
+            // desregistra o post type
+            unregister_post_type('ap-slider');
         }
 
         public static function uninstall()
