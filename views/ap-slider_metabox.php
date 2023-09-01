@@ -11,6 +11,8 @@ $link_url = get_post_meta($post->ID, 'ap_slider_link_url', true);
 ?>
 
 <table class="form-table ap-slider-metabox">
+    <!-- Input hidden com o nonce code -->
+    <input type="hidden" name="ap_slider_nonce" value="<?= wp_create_nonce('ap_slider_nonce') ?>">
     <tr>
         <th>
             <label for="ap_slider_link_text">Link Text</label>

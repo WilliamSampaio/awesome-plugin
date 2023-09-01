@@ -66,6 +66,25 @@ if (!class_exists('AwesomePlugin_Post_Type')) {
 
         public function save_post($post_id)
         {
+            // valida nonce code
+            if (isset($_POST['ap_slider_nonce'])) {
+                if (!wp_verify_nonce($_POST['ap_slider_nonce'], 'ap_slider_nonce')) return;
+            }
+
+            // se o auto save estiver ativo retorna da funcao
+            if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) return;
+
+            // verifica se o post é referente ao nosso plugin
+            if (isset($_POST['post_type']) && $_POST['post_type'] === 'ap-slider') {
+
+                // verifica se o usuario logado tem permissão de edicao
+                if (!current_user_can('edit_page', $post_id)) {
+                    return;
+                } elseif (!current_user_can('edit_post', $post_id)) {
+                    return;
+                }
+            }
+
             if (isset($_POST['action']) && $_POST['action'] == 'editpost') {
                 $old_link_text = get_post_meta($post_id, 'ap_slider_link_text', true);
                 $new_link_text = $_POST['ap_slider_link_text'];
