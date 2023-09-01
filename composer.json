@@ -1,0 +1,13 @@
+{
+    "name": "william/awesome-plugin",
+    "description": "Awesome Plugin",
+    "type": "project",
+    "license": "GPL v2 or later",
+    "authors": [
+        {
+            "name": "William Sampaio",
+            "email": "56176702+WilliamSampaio@users.noreply.github.com"
+        }
+    ],
+    "require": {}
+}
