@@ -113,7 +113,8 @@ if (!class_exists('AwesomePlugin')) {
 
         public function ap_slider_settings_page()
         {
-            echo 'Olá!';
+            // importa a view da pagina de settings do plugin
+            require_once(AWESOME_PLUGIN_PATH . 'views/settings-page.php');
         }
     }
 }
