@@ -41,6 +41,9 @@ if (!class_exists('AwesomePlugin')) {
         {
             $this->define_constants();
 
+            // Adiciona a acao que coloca o menu
+            add_action('admin_menu', [$this, 'add_menu']);
+
             // instancia o post type
             require_once(AWESOME_PLUGIN_PATH . 'post-types/class.awesome-plugin-cpt.php');
             $AwesomePlugin_Post_Type = new AwesomePlugin_Post_Type();
@@ -69,6 +72,24 @@ if (!class_exists('AwesomePlugin')) {
 
         public static function uninstall()
         {
+        }
+
+        // metodo que que adiciona o menu
+        public function add_menu()
+        {
+            add_menu_page(
+                'AP Slider Options',
+                'AP Slider',
+                'manage_options',
+                'ap_slider_admin',
+                [$this, 'ap_slider_settings_page'],
+                'dashicons-images-alt2'
+            );
+        }
+
+        public function ap_slider_settings_page()
+        {
+            echo 'Olá!';
         }
     }
 }
