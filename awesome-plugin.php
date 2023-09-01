@@ -31,3 +31,43 @@ along with Awesome Plugin. If not, see https://www.gnu.org/licenses/gpl-2.0.html
 
 if (!defined('ABSPATH')) exit;
 
+// Se a classe NÃO existe declara ela
+if (!class_exists('AwesomePlugin')) {
+    class AwesomePlugin
+    {
+        function __construct()
+        {
+            $this->define_constants();
+        }
+
+        // define constantes utilizadas no plugin
+        public function define_constants()
+        {
+            define('AWESOME_PLUGIN_PATH', plugin_dir_path(__FILE__));
+            define('AWESOME_PLUGIN_URL', plugin_dir_url(__FILE__));
+            define('AWESOME_VERSION', '1.0.0');
+        }
+
+        public static function activate()
+        {
+            update_option('rewrite_rules', '');
+        }
+
+        public static function deactivate()
+        {
+            flush_rewrite_rules();
+        }
+
+        public static function uninstall()
+        {
+        }
+    }
+}
+
+// Se a classe existe instancia ela
+if (class_exists('AwesomePlugin')) {
+    register_activation_hook(__FILE__, ['AwesomePlugin', 'activate']);
+    register_deactivation_hook(__FILE__, ['AwesomePlugin', 'deactivate']);
+    register_uninstall_hook(__FILE__, ['AwesomePlugin', 'uninstall']);
+    $plugin = new AwesomePlugin();
+}
