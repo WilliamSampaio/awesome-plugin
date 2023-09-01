@@ -67,9 +67,9 @@ if (!class_exists('AwesomePlugin_Post_Type')) {
         public function save_post($post_id)
         {
             if (isset($_POST['action']) && $_POST['action'] == 'editpost') {
-                $old_link_text = get_post_meta($post_id, 'ap_slider_link_text');
+                $old_link_text = get_post_meta($post_id, 'ap_slider_link_text', true);
                 $new_link_text = $_POST['ap_slider_link_text'];
-                $old_link_url = get_post_meta($post_id, 'ap_slider_link_url');
+                $old_link_url = get_post_meta($post_id, 'ap_slider_link_url', true);
                 $new_link_url = $_POST['ap_slider_link_url'];
 
                 $new_link_text = sanitize_text_field($new_link_text);
