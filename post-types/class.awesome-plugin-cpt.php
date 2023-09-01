@@ -1,5 +1,7 @@
 <?php
 
+// Nunca confie nos dados fornecidos pelo usuário!
+
 if (!class_exists('AwesomePlugin_Post_Type')) {
 
     // classe do Post Type
@@ -70,8 +72,20 @@ if (!class_exists('AwesomePlugin_Post_Type')) {
                 $old_link_url = get_post_meta($post_id, 'ap_slider_link_url');
                 $new_link_url = $_POST['ap_slider_link_url'];
 
-                update_post_meta($post_id, 'ap_slider_link_text', $new_link_text, $old_link_text);
-                update_post_meta($post_id, 'ap_slider_link_url', $new_link_url, $old_link_url);
+                $new_link_text = sanitize_text_field($new_link_text);
+                $new_link_url = sanitize_text_field($new_link_url);
+
+                if (empty($new_link_text)) {
+                    update_post_meta($post_id, 'ap_slider_link_text', 'Add a valid text');
+                } else {
+                    update_post_meta($post_id, 'ap_slider_link_text', $new_link_text, $old_link_text);
+                }
+
+                if (empty($new_link_url)) {
+                    update_post_meta($post_id, 'ap_slider_link_url', '#');
+                } else {
+                    update_post_meta($post_id, 'ap_slider_link_url', $new_link_url, $old_link_url);
+                }
             }
         }
     }
