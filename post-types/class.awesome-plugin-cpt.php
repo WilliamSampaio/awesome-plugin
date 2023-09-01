@@ -14,6 +14,13 @@ if (!class_exists('AwesomePlugin_Post_Type')) {
                 $this, 'add_meta_boxes'
             ]);
             add_action('save_post', [$this, 'save_post'], accepted_args: 2);
+            add_action('manage_ap-slider_posts_columns', [
+                $this, 'ap_slider_cpt_columns'
+            ]);
+            add_action('manage_ap-slider_posts_custom_column', [
+                $this, 'ap_slider_custom_columns'
+            ], accepted_args: 2);
+            add_action('manage_edit-ap-slider_sortable_columns', [$this, 'ap_slider_sortable_columns']);
         }
 
         public function create_post_type()
@@ -45,6 +52,35 @@ if (!class_exists('AwesomePlugin_Post_Type')) {
                 'menu_icon' => 'dashicons-images-alt2',
                 //'register_meta_box_cb' => [$this, 'add_meta_boxes']
             ]);
+        }
+
+        // metodo que torna as colunas ordenaveis no painel do postype
+        public function ap_slider_sortable_columns($columns)
+        {
+            $columns['ap_slider_link_text'] = 'ap_slider_link_text';
+            $columns['ap_slider_link_url'] = 'ap_slider_link_url';
+            return $columns;
+        }
+
+        // metodo que adciona os dados nas devidas colunas no painel do postype
+        public function ap_slider_custom_columns($column, $post_id)
+        {
+            switch ($column) {
+                case 'ap_slider_link_text':
+                    echo esc_html(get_post_meta($post_id, 'ap_slider_link_text', true));
+                    break;
+                case 'ap_slider_link_url':
+                    echo esc_url(get_post_meta($post_id, 'ap_slider_link_url', true));
+                    break;
+            }
+        }
+
+        // metodo que adciona as colunas no painel do postyupe
+        public function ap_slider_cpt_columns($columns)
+        {
+            $columns['ap_slider_link_text'] = esc_html__('Link Text', 'ap-slider');
+            $columns['ap_slider_link_url'] = esc_html__('Link URL', 'ap-slider');
+            return $columns;
         }
 
         public function add_meta_boxes()
