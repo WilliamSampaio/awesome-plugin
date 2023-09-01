@@ -77,13 +77,13 @@ if (!class_exists('AwesomePlugin')) {
         // metodo que que adiciona o menu
         public function add_menu()
         {
-            add_menu_page(
+            add_plugins_page(
                 'AP Slider Options',
                 'AP Slider',
                 'manage_options',
                 'ap_slider_admin',
                 [$this, 'ap_slider_settings_page'],
-                'dashicons-images-alt2'
+                // 'dashicons-images-alt2'
             );
         }
 
