@@ -61,7 +61,13 @@ if (!class_exists('Settings')) {
                 'Slider Style',
                 [$this, 'ap_slider_style_callback'],
                 'ap_slider_page2',
-                'ap_slider_second_section'
+                'ap_slider_second_section',
+                [
+                    'itens' => [
+                        'style-1',
+                        'style-2'
+                    ]
+                ]
             );
         }
 
@@ -80,7 +86,7 @@ if (!class_exists('Settings')) {
             require_once(AWESOME_PLUGIN_PATH . 'views/ap-settings-field-slider-bullets.php');
         }
 
-        public function ap_slider_style_callback()
+        public function ap_slider_style_callback($args)
         {
             require_once(AWESOME_PLUGIN_PATH . 'views/ap-settings-field-slider-style.php');
         }
