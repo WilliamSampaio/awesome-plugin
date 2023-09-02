@@ -16,7 +16,7 @@ if (!class_exists('Settings')) {
 
         public function admin_init()
         {
-            register_setting('ap_slider_group', 'ap_slider_options');
+            register_setting('ap_slider_group', 'ap_slider_options', [$this, 'ap_slider_validate']);
 
             add_settings_section(
                 'ap_slider_main_section',
@@ -96,6 +96,15 @@ if (!class_exists('Settings')) {
         public function ap_slider_style_callback($args)
         {
             require_once(AWESOME_PLUGIN_PATH . 'views/ap-settings-field-slider-style.php');
+        }
+
+        public function ap_slider_validate($input)
+        {
+            $new_input = [];
+            foreach ($input as $key => $value) {
+                $new_input[$key] = sanitize_text_field($value);
+            }
+            return $new_input;
         }
     }
 }
