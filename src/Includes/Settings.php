@@ -45,7 +45,10 @@ if (!class_exists('Settings')) {
                 'Slider Text',
                 [$this, 'ap_slider_title_callback'],
                 'ap_slider_page2',
-                'ap_slider_second_section'
+                'ap_slider_second_section',
+                [
+                    'label_for' => 'ap_slider_title'
+                ]
             );
 
             add_settings_field(
@@ -53,7 +56,10 @@ if (!class_exists('Settings')) {
                 'Display Bullets',
                 [$this, 'ap_slider_bullets_callback'],
                 'ap_slider_page2',
-                'ap_slider_second_section'
+                'ap_slider_second_section',
+                [
+                    'label_for' => 'ap_slider_bullets'
+                ]
             );
 
             add_settings_field(
@@ -66,7 +72,8 @@ if (!class_exists('Settings')) {
                     'itens' => [
                         'style-1' => 'Style 1',
                         'style-2' => 'Style 2'
-                    ]
+                    ],
+                    'label_for' => 'ap_slider_style'
                 ]
             );
         }
@@ -76,12 +83,12 @@ if (!class_exists('Settings')) {
             echo esc_html("<span>Use the Shortcode [ap_slider] to display the slider in any page/post/widget</span>");
         }
 
-        public function ap_slider_title_callback()
+        public function ap_slider_title_callback($args)
         {
             require_once(AWESOME_PLUGIN_PATH . 'views/ap-settings-field-slider-title.php');
         }
 
-        public function ap_slider_bullets_callback()
+        public function ap_slider_bullets_callback($args)
         {
             require_once(AWESOME_PLUGIN_PATH . 'views/ap-settings-field-slider-bullets.php');
         }
