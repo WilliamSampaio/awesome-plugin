@@ -82,6 +82,15 @@ if (!class_exists('AwesomePlugin')) {
 
         public function ap_slider_settings_page()
         {
+            if (!current_user_can('manage_options')) {
+                return;
+            }
+
+            if (isset($_GET['settings-updated'])) {
+                add_settings_error('ap_slider_options', 'ap_slider_message', 'Settings Saved!', 'success');
+            }
+            settings_errors('ap_slider_options');
+
             // importa a view da pagina de settings do plugin
             require_once(AWESOME_PLUGIN_PATH . 'views/ap-settings-page.php');
         }
