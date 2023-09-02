@@ -64,8 +64,8 @@ if (!class_exists('Settings')) {
                 'ap_slider_second_section',
                 [
                     'itens' => [
-                        'style-1',
-                        'style-2'
+                        'style-1' => 'Style 1',
+                        'style-2' => 'Style 2'
                     ]
                 ]
             );
