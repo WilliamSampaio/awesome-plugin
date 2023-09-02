@@ -1,12 +1,8 @@
 <?php
 
-require_once(AWESOME_PLUGIN_PATH . 'functions/utils.php');
-
 // pega os dados salvos no banco de dados e escapa no atributo value dos inputs
 $link_text = get_post_meta($post->ID, 'ap_slider_link_text', true);
 $link_url = get_post_meta($post->ID, 'ap_slider_link_url', true);
-
-// debug($meta, true);
 
 ?>
 

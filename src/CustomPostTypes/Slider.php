@@ -99,7 +99,7 @@ if (!class_exists('Slider')) {
 
         public function add_inner_meta_boxes($post)
         {
-            require_once(AWESOME_PLUGIN_PATH . 'views/ap-slider_metabox.php');
+            require_once(AWESOME_PLUGIN_PATH . 'views/ap-slider-metabox.php');
         }
 
         public function save_post($post_id)
