@@ -2,10 +2,12 @@
 
 // Nunca confie nos dados fornecidos pelo usuário!
 
-if (!class_exists('AwesomePlugin_Post_Type')) {
+namespace AP\CustomPostTypes;
+
+if (!class_exists('Slider')) {
 
     // classe do Post Type
-    class AwesomePlugin_Post_Type
+    class Slider
     {
         function __construct()
         {

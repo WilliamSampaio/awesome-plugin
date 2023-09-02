@@ -1,5 +1,5 @@
 {
-    "name": "william/awesome-plugin",
+    "name": "williamsampaio/awesome-plugin",
     "description": "Awesome Plugin",
     "type": "project",
     "license": "GPL v2 or later",
@@ -9,5 +9,13 @@
             "email": "56176702+WilliamSampaio@users.noreply.github.com"
         }
     ],
-    "require": {}
+    "autoload": {
+        "psr-4": {
+            "AP\\": "src/"
+        }
+    },
+    "require-dev": {
+        "giacocorsiglia/wordpress-stubs": "^5.1",
+        "php-stubs/acf-pro-stubs": "^6.1"
+    }
 }

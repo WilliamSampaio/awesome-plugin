@@ -1,8 +1,10 @@
 <?php
 
-if (!class_exists('AwesomePlugin_Settings')) {
+namespace AP\Includes;
 
-    class AwesomePlugin_Settings
+if (!class_exists('Settings')) {
+
+    class Settings
     {
         public static $options;
 

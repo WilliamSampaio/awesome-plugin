@@ -29,104 +29,18 @@ You should have received a copy of the GNU General Public License
 along with Awesome Plugin. If not, see https://www.gnu.org/licenses/gpl-2.0.html.
 */
 
-if (!defined('ABSPATH')) exit;
+use AP\Includes\AwesomePlugin;
 
-// Se a classe NÃO existe declara ela
-if (!class_exists('AwesomePlugin')) {
+defined('ABSPATH') || exit;
 
-    // Classe principal do plugin
-    class AwesomePlugin
-    {
-        function __construct()
-        {
-            $this->define_constants();
+define('AWESOME_PLUGIN_FILE', __FILE__);
+define('AWESOME_PLUGIN_PATH', plugin_dir_path(__FILE__));
+define('AWESOME_PLUGIN_URL', plugin_dir_url(__FILE__));
+define('AWESOME_VERSION', '0.9.9');
 
-            // Adiciona a acao que coloca o menu
-            add_action('admin_menu', [$this, 'add_menu']);
+require_once AWESOME_PLUGIN_PATH . 'vendor/autoload.php';
 
-            // instancia o post type
-            require_once(AWESOME_PLUGIN_PATH . 'post-types/class.awesome-plugin-cpt.php');
-            $AwesomePlugin_Post_Type = new AwesomePlugin_Post_Type();
-
-            // instancia a classe de settings
-            require_once(AWESOME_PLUGIN_PATH . 'class.mv-slider-settings.php');
-            $AwesomePlugin_Settings = new AwesomePlugin_Settings();
-        }
-
-        // define constantes utilizadas no plugin
-        public function define_constants()
-        {
-            define('AWESOME_PLUGIN_PATH', plugin_dir_path(__FILE__));
-            define('AWESOME_PLUGIN_URL', plugin_dir_url(__FILE__));
-            define('AWESOME_VERSION', '1.0.0');
-        }
-
-        public static function activate()
-        {
-            update_option('rewrite_rules', '');
-        }
-
-        public static function deactivate()
-        {
-            flush_rewrite_rules();
-
-            // desregistra o post type
-            unregister_post_type('ap-slider');
-        }
-
-        public static function uninstall()
-        {
-        }
-
-        // metodo que que adiciona o menu
-        public function add_menu()
-        {
-            // add_options_page(
-            // add_theme_page(
-            // add_plugins_page(
-            add_menu_page(
-                'AP Slider Options',
-                'AP Slider',
-                'manage_options',
-                'ap_slider_admin',
-                [$this, 'ap_slider_settings_page'],
-                // usado somente no add_menu_page
-                'dashicons-images-alt2'
-            );
-
-            add_submenu_page(
-                'ap_slider_admin',
-                'Manage Slides',
-                'Manage Slides',
-                'manage_options',
-                'edit.php?post_type=ap-slider',
-                null,
-                null
-            );
-
-            add_submenu_page(
-                'ap_slider_admin',
-                'Add New Slide',
-                'Add New Slide',
-                'manage_options',
-                'post-new.php?post_type=ap-slider',
-                null,
-                null
-            );
-        }
-
-        public function ap_slider_settings_page()
-        {
-            // importa a view da pagina de settings do plugin
-            require_once(AWESOME_PLUGIN_PATH . 'views/settings-page.php');
-        }
-    }
-}
-
-// Se a classe existe instancia ela
-if (class_exists('AwesomePlugin')) {
-    register_activation_hook(__FILE__, ['AwesomePlugin', 'activate']);
-    register_deactivation_hook(__FILE__, ['AwesomePlugin', 'deactivate']);
-    register_uninstall_hook(__FILE__, ['AwesomePlugin', 'uninstall']);
-    $plugin = new AwesomePlugin();
-}
+register_activation_hook(__FILE__, [AwesomePlugin::class, 'activate']);
+register_deactivation_hook(__FILE__, [AwesomePlugin::class, 'deactivate']);
+register_uninstall_hook(__FILE__, [AwesomePlugin::class, 'uninstall']);
+$plugin = new AwesomePlugin();
