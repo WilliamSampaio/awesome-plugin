@@ -12,7 +12,10 @@
     "autoload": {
         "psr-4": {
             "AP\\": "src/"
-        }
+        },
+        "files": [
+            "functions/utils.php"
+        ]
     },
     "require-dev": {
         "php-stubs/acf-pro-stubs": "^6.1",
