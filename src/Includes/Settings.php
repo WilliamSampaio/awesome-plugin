@@ -17,6 +17,7 @@ if (!class_exists('Settings')) {
         public function admin_init()
         {
             register_setting('ap_slider_group', 'ap_slider_options');
+
             add_settings_section(
                 'ap_slider_main_section',
                 'How does it work?',
@@ -31,11 +32,57 @@ if (!class_exists('Settings')) {
                 'ap_slider_page1',
                 'ap_slider_main_section'
             );
+
+            add_settings_section(
+                'ap_slider_second_section',
+                'Other Plugin Options',
+                null,
+                'ap_slider_page2'
+            );
+
+            add_settings_field(
+                'ap_slider_title',
+                'Slider Text',
+                [$this, 'ap_slider_title_callback'],
+                'ap_slider_page2',
+                'ap_slider_second_section'
+            );
+
+            add_settings_field(
+                'ap_slider_bullets',
+                'Display Bullets',
+                [$this, 'ap_slider_bullets_callback'],
+                'ap_slider_page2',
+                'ap_slider_second_section'
+            );
+
+            add_settings_field(
+                'ap_slider_style',
+                'Slider Style',
+                [$this, 'ap_slider_style_callback'],
+                'ap_slider_page2',
+                'ap_slider_second_section'
+            );
         }
 
         public function ap_slider_shortcode_callback()
         {
             echo esc_html("<span>Use the Shortcode [ap_slider] to display the slider in any page/post/widget</span>");
+        }
+
+        public function ap_slider_title_callback()
+        {
+            require_once(AWESOME_PLUGIN_PATH . 'views/ap-settings-field-slider-title.php');
+        }
+
+        public function ap_slider_bullets_callback()
+        {
+            require_once(AWESOME_PLUGIN_PATH . 'views/ap-settings-field-slider-bullets.php');
+        }
+
+        public function ap_slider_style_callback()
+        {
+            require_once(AWESOME_PLUGIN_PATH . 'views/ap-settings-field-slider-style.php');
         }
     }
 }

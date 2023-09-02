@@ -4,6 +4,7 @@
         <?php
         settings_fields('ap_slider_group');
         do_settings_sections('ap_slider_page1');
+        do_settings_sections('ap_slider_page2');
         submit_button('Save Settings');
         ?>
     </form>
