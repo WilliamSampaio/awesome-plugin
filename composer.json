@@ -15,7 +15,7 @@
         }
     },
     "require-dev": {
-        "giacocorsiglia/wordpress-stubs": "^5.1",
-        "php-stubs/acf-pro-stubs": "^6.1"
+        "php-stubs/acf-pro-stubs": "^6.1",
+        "php-stubs/wordpress-stubs": "^6.3"
     }
 }
