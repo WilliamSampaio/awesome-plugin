@@ -51,6 +51,16 @@ if (!class_exists('AwesomePlugin')) {
 
         public static function uninstall()
         {
+            delete_option('ap_slider_options');
+            $posts = get_posts([
+                'post_type' => 'ap-slider',
+                'number_posts' => -1,
+                'post_status' => 'any'
+            ]);
+
+            foreach ($posts as $post) {
+                wp_delete_post($post->ID, true);
+            }
         }
 
         public function load_textdomain()
