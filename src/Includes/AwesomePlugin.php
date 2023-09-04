@@ -58,7 +58,7 @@ if (!class_exists('AwesomePlugin')) {
             load_plugin_textdomain(
                 'awesome-plugin',
                 false,
-                plugin_basename(AWESOME_PLUGIN_PATH) . '/language/'
+                plugin_basename(AWESOME_PLUGIN_PATH) . '/languages/'
             );
         }
 
