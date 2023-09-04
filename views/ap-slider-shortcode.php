@@ -29,7 +29,15 @@ $ap_slider_style = Settings::$options['ap_slider_style'];
                 $button_url = get_post_meta(get_the_ID(), 'ap_slider_link_url', true);
         ?>
                 <li>
-                    <?php the_post_thumbnail('full', ['class' => 'img-fluid']) ?>
+                    <?php
+
+                    if (has_post_thumbnail()) {
+                        the_post_thumbnail('full', ['class' => 'img-fluid']);
+                    } else {
+                        echo "<img src='" . AWESOME_PLUGIN_URL . 'assets/images/default.jpg' . "' class='img-fluid wp-post-image' />";
+                    }
+
+                    ?>
                     <div class="ap-slider-container">
                         <div class="slider-details-container">
                             <div class="wrapper">
