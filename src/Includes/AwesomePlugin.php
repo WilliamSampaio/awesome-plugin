@@ -3,6 +3,7 @@
 namespace AP\Includes;
 
 use AP\CustomPostTypes\Slider;
+use AP\Shortcodes\SliderShortcode;
 
 if (!class_exists('AwesomePlugin')) {
 
@@ -11,6 +12,7 @@ if (!class_exists('AwesomePlugin')) {
     {
         protected $slider;
         protected $settings;
+        protected $slider_shortcode;
 
         function __construct()
         {
@@ -24,6 +26,8 @@ if (!class_exists('AwesomePlugin')) {
             // require_once(AWESOME_PLUGIN_PATH . 'class.mv-slider-settings.php');
             // $AwesomePlugin_Settings = new AwesomePlugin_Settings();
             $this->settings = new Settings();
+
+            $this->slider_shortcode = new SliderShortcode();
         }
 
         public static function activate()
