@@ -1,0 +1,102 @@
+# Blank WordPress Pot
+# Copyright 2014 ...
+# This file is distributed under the GNU General Public License v3 or later.
+msgid ""
+msgstr ""
+"Project-Id-Version: Awesome Plugin v0.9.9\n"
+"Report-Msgid-Bugs-To: Translator Name <translations@example.com>\n"
+"POT-Creation-Date: 2023-09-04 16:48-0400\n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: William Sampaio <translations@example.com>\n"
+"Language: pt_BR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Textdomain-Support: yesX-Generator: Poedit 1.6.4\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;esc_html_e;esc_html_x:1,2c;esc_html__;esc_attr_e;esc_attr_x:1,2c;esc_attr__;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2;_x:1,2c;_n:1,2;_n_noop:1,2;__ngettext:1,2;__ngettext_noop:1,2;_c,_nc:4c,1,2\n"
+"X-Poedit-Basepath: ..\n"
+"X-Generator: Poedit 3.3.2\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: src/CustomPostTypes/Slider.php:32 src/CustomPostTypes/Slider.php:34
+msgid "Sliders"
+msgstr "Sliders"
+
+#: src/CustomPostTypes/Slider.php:35
+msgid "Slider"
+msgstr "Slider"
+
+#: src/CustomPostTypes/Slider.php:83 views/ap-slider-metabox.php:14
+msgid "Link Text"
+msgstr "Texto do link"
+
+#: src/CustomPostTypes/Slider.php:84
+msgid "Link URL"
+msgstr "URL do Link"
+
+#: src/CustomPostTypes/Slider.php:92
+msgid "Link Options"
+msgstr "Opções de links"
+
+#: src/CustomPostTypes/Slider.php:136
+msgid "Add a valid text"
+msgstr "Adicionar um texto válido"
+
+#: src/Includes/AwesomePlugin.php:72
+msgid "AP Slider Options"
+msgstr "AP Slider Opções"
+
+#: src/Includes/AwesomePlugin.php:73
+msgid "AP Slider"
+msgstr "AP Slider"
+
+#: src/Includes/AwesomePlugin.php:83 src/Includes/AwesomePlugin.php:84
+msgid "Manage Slides"
+msgstr "Gerenciar Slides"
+
+#: src/Includes/AwesomePlugin.php:93 src/Includes/AwesomePlugin.php:94
+msgid "Add New Slide"
+msgstr "Adicionar Novo Slide"
+
+#: src/Includes/AwesomePlugin.php:109
+msgid "Settings Saved!"
+msgstr "Configurações Salvas!"
+
+#: src/Includes/Settings.php:23
+msgid "How does it work?"
+msgstr "Como isso funciona?"
+
+#: src/Includes/Settings.php:30
+msgid "Shortcode"
+msgstr "Shortcode"
+
+#: src/Includes/Settings.php:38
+msgid "Other Plugin Options"
+msgstr "Outras Opções do Plugin"
+
+#: src/Includes/Settings.php:45
+msgid "Slider Text"
+msgstr "Texto do Slider"
+
+#: src/Includes/Settings.php:56
+msgid "Display Bullets"
+msgstr "Exibir Marcadores"
+
+#: src/Includes/Settings.php:67
+msgid "Slider Style"
+msgstr "Estilo do Slider"
+
+#: views/ap-settings-field-slider-bullets.php:12
+msgid "Whether to display bullets or not"
+msgstr "Exibir marcadores ou não"
+
+#: views/ap-settings-page.php:8
+msgid "Save Settings"
+msgstr "Salvar Configurações"
+
+#: views/ap-slider-metabox.php:22
+msgid "Link Url"
+msgstr "URL do Link"
