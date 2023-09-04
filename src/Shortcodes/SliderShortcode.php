@@ -26,6 +26,11 @@ if (!class_exists('SliderShortcode')) {
             if (!empty($id)) {
                 $id = array_map('absint', explode(',', $id));
             }
+
+            // chama a view
+            ob_start();
+            require AWESOME_PLUGIN_PATH . 'views/ap-slider-shortcode.php';
+            return ob_get_clean();
         }
     }
 }
