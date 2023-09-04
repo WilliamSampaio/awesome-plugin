@@ -2,9 +2,12 @@
 
 use AP\Includes\Settings;
 
+$ap_slider_title = Settings::$options['ap_slider_title'];
+$ap_slider_style = Settings::$options['ap_slider_style'];
+
 ?>
-<h3><?= !empty($content) ? esc_html($content) : esc_html(Settings::$options['ap_slider_title']) ?></h3>
-<div class="ap-slider flexslider">
+<h3><?= !empty($content) ? esc_html($content) : esc_html($ap_slider_title) ?></h3>
+<div class="ap-slider flexslider <?= isset($ap_slider_style) ? esc_attr($ap_slider_style) : 'style-1' ?>">
     <ul class="slides">
         <?php
 
