@@ -1,6 +1,6 @@
 // Can also be used with $(document).ready()
-JQuery(window).load(function () {
-    JQuery('.flexslider').flexslider({
+jQuery(window).on('load', () => {
+    jQuery('.flexslider').flexslider({
         animation: "slide",
         touch: true,
         directionNav: false,

@@ -28,6 +28,9 @@ if (!class_exists('AwesomePlugin')) {
             $this->settings = new Settings();
 
             $this->slider_shortcode = new SliderShortcode();
+
+            // enfileira os js e css
+            add_action('wp_enqueue_scripts', [$this, 'register_scripts'], 999);
         }
 
         public static function activate()
@@ -97,6 +100,39 @@ if (!class_exists('AwesomePlugin')) {
 
             // importa a view da pagina de settings do plugin
             require_once(AWESOME_PLUGIN_PATH . 'views/ap-settings-page.php');
+        }
+
+        // registra todos os assets js e css
+        public function register_scripts()
+        {
+            wp_register_script(
+                'ap-slider-main-jq',
+                AWESOME_PLUGIN_URL . 'assets/flexslider/jquery.flexslider-min.js',
+                ['jquery'],
+                AWESOME_VERSION,
+                true
+            );
+            wp_register_script(
+                'ap-slider-options-js',
+                AWESOME_PLUGIN_URL . 'assets/flexslider/flexslider.js',
+                ['jquery'],
+                AWESOME_VERSION,
+                true
+            );
+            wp_register_style(
+                'ap-slider-main-css',
+                AWESOME_PLUGIN_URL . 'assets/flexslider/flexslider.css',
+                [],
+                AWESOME_VERSION,
+                'all'
+            );
+            wp_register_style(
+                'ap-slider-style-css',
+                AWESOME_PLUGIN_URL . 'assets/css/slider.css',
+                [],
+                AWESOME_VERSION,
+                'all'
+            );
         }
     }
 }
