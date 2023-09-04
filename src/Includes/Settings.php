@@ -20,14 +20,14 @@ if (!class_exists('Settings')) {
 
             add_settings_section(
                 'ap_slider_main_section',
-                'How does it work?',
+                esc_html__('How does it work?', 'awesome-plugin'),
                 null,
                 'ap_slider_page1'
             );
 
             add_settings_field(
                 'ap_slider_shortcode',
-                'Shortcode',
+                esc_html__('Shortcode', 'awesome-plugin'),
                 [$this, 'ap_slider_shortcode_callback'],
                 'ap_slider_page1',
                 'ap_slider_main_section'
@@ -35,14 +35,14 @@ if (!class_exists('Settings')) {
 
             add_settings_section(
                 'ap_slider_second_section',
-                'Other Plugin Options',
+                esc_html__('Other Plugin Options', 'awesome-plugin'),
                 null,
                 'ap_slider_page2'
             );
 
             add_settings_field(
                 'ap_slider_title',
-                'Slider Text',
+                esc_html__('Slider Text', 'awesome-plugin'),
                 [$this, 'ap_slider_title_callback'],
                 'ap_slider_page2',
                 'ap_slider_second_section',
@@ -53,7 +53,7 @@ if (!class_exists('Settings')) {
 
             add_settings_field(
                 'ap_slider_bullets',
-                'Display Bullets',
+                esc_html__('Display Bullets', 'awesome-plugin'),
                 [$this, 'ap_slider_bullets_callback'],
                 'ap_slider_page2',
                 'ap_slider_second_section',
@@ -64,7 +64,7 @@ if (!class_exists('Settings')) {
 
             add_settings_field(
                 'ap_slider_style',
-                'Slider Style',
+                esc_html__('Slider Style', 'awesome-plugin'),
                 [$this, 'ap_slider_style_callback'],
                 'ap_slider_page2',
                 'ap_slider_second_section',

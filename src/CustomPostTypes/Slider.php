@@ -29,10 +29,10 @@ if (!class_exists('Slider')) {
         {
             register_post_type('ap-slider', [
                 'label' => 'AwesomePlugin - Slider',
-                'description' => 'Sliders',
+                'description' => esc_html__('Sliders', 'awesome-plugin'),
                 'labels' => [
-                    'name' => 'Sliders',
-                    'singular_name' => 'Slider',
+                    'name' => esc_html__('Sliders', 'awesome-plugin'),
+                    'singular_name' => esc_html__('Slider', 'awesome-plugin'),
                 ],
                 'public' => true,
                 'supports' => [
@@ -80,8 +80,8 @@ if (!class_exists('Slider')) {
         // metodo que adciona as colunas no painel do postyupe
         public function ap_slider_cpt_columns($columns)
         {
-            $columns['ap_slider_link_text'] = esc_html__('Link Text', 'ap-slider');
-            $columns['ap_slider_link_url'] = esc_html__('Link URL', 'ap-slider');
+            $columns['ap_slider_link_text'] = esc_html__('Link Text', 'awesome-plugin');
+            $columns['ap_slider_link_url'] = esc_html__('Link URL', 'awesome-plugin');
             return $columns;
         }
 
@@ -89,7 +89,7 @@ if (!class_exists('Slider')) {
         {
             add_meta_box(
                 'ap_slider_meta_box',
-                'Link Options',
+                esc_html__('Link Options', 'awesome-plugin'),
                 [$this, 'add_inner_meta_boxes'],
                 'ap-slider',
                 'normal',
@@ -133,7 +133,7 @@ if (!class_exists('Slider')) {
                 $new_link_url = sanitize_text_field($new_link_url);
 
                 if (empty($new_link_text)) {
-                    update_post_meta($post_id, 'ap_slider_link_text', 'Add a valid text');
+                    update_post_meta($post_id, 'ap_slider_link_text', esc_html__('Add a valid text', 'awesome-plugin'));
                 } else {
                     update_post_meta($post_id, 'ap_slider_link_text', $new_link_text, $old_link_text);
                 }

@@ -16,6 +16,8 @@ if (!class_exists('AwesomePlugin')) {
 
         function __construct()
         {
+            $this->load_textdomain();
+
             require_once AWESOME_PLUGIN_PATH . 'functions/functions.php';
             // Adiciona a acao que coloca o menu
             add_action('admin_menu', [$this, 'add_menu']);
@@ -51,6 +53,15 @@ if (!class_exists('AwesomePlugin')) {
         {
         }
 
+        public function load_textdomain()
+        {
+            load_plugin_textdomain(
+                'awesome-plugin',
+                false,
+                plugin_basename(AWESOME_PLUGIN_PATH) . '/language/'
+            );
+        }
+
         // metodo que que adiciona o menu
         public function add_menu()
         {
@@ -58,8 +69,8 @@ if (!class_exists('AwesomePlugin')) {
             // add_theme_page(
             // add_plugins_page(
             add_menu_page(
-                'AP Slider Options',
-                'AP Slider',
+                esc_html__('AP Slider Options', 'awesome-plugin'),
+                esc_html__('AP Slider', 'awesome-plugin'),
                 'manage_options',
                 'ap_slider_admin',
                 [$this, 'ap_slider_settings_page'],
@@ -69,8 +80,8 @@ if (!class_exists('AwesomePlugin')) {
 
             add_submenu_page(
                 'ap_slider_admin',
-                'Manage Slides',
-                'Manage Slides',
+                esc_html__('Manage Slides', 'awesome-plugin'),
+                esc_html__('Manage Slides', 'awesome-plugin'),
                 'manage_options',
                 'edit.php?post_type=ap-slider',
                 null,
@@ -79,8 +90,8 @@ if (!class_exists('AwesomePlugin')) {
 
             add_submenu_page(
                 'ap_slider_admin',
-                'Add New Slide',
-                'Add New Slide',
+                esc_html__('Add New Slide', 'awesome-plugin'),
+                esc_html__('Add New Slide', 'awesome-plugin'),
                 'manage_options',
                 'post-new.php?post_type=ap-slider',
                 null,
@@ -95,7 +106,7 @@ if (!class_exists('AwesomePlugin')) {
             }
 
             if (isset($_GET['settings-updated'])) {
-                add_settings_error('ap_slider_options', 'ap_slider_message', 'Settings Saved!', 'success');
+                add_settings_error('ap_slider_options', 'ap_slider_message', esc_html__('Settings Saved!', 'awesome-plugin'), 'success');
             }
             settings_errors('ap_slider_options');
 

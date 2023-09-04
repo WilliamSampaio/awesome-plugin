@@ -9,4 +9,4 @@ value="1"
     }
 ?>
 >
-<label for="ap_slider_bullets">Whether to display bullets or not</label>
+<label for="ap_slider_bullets"><?php esc_html_e('Whether to display bullets or not', 'awesome-plugin') ?></label>
