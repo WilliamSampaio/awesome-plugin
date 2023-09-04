@@ -34,7 +34,7 @@ $ap_slider_style = Settings::$options['ap_slider_style'];
                     if (has_post_thumbnail()) {
                         the_post_thumbnail('full', ['class' => 'img-fluid']);
                     } else {
-                        echo "<img src='" . AWESOME_PLUGIN_URL . 'assets/images/default.jpg' . "' class='img-fluid wp-post-image' />";
+                        echo ap_slider_get_placeholder_image();
                     }
 
                     ?>

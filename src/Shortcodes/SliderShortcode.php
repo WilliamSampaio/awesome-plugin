@@ -31,9 +31,9 @@ if (!class_exists('SliderShortcode')) {
             ob_start();
             require AWESOME_PLUGIN_PATH . 'views/ap-slider-shortcode.php';
             wp_enqueue_script('ap-slider-main-jq');
-            wp_enqueue_script('ap-slider-options-js');
             wp_enqueue_style('ap-slider-main-css');
             wp_enqueue_style('ap-slider-style-css');
+            ap_slider_options();
             return ob_get_clean();
         }
     }

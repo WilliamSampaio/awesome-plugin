@@ -16,6 +16,7 @@ if (!class_exists('AwesomePlugin')) {
 
         function __construct()
         {
+            require_once AWESOME_PLUGIN_PATH . 'functions/functions.php';
             // Adiciona a acao que coloca o menu
             add_action('admin_menu', [$this, 'add_menu']);
 
@@ -108,13 +109,6 @@ if (!class_exists('AwesomePlugin')) {
             wp_register_script(
                 'ap-slider-main-jq',
                 AWESOME_PLUGIN_URL . 'assets/flexslider/jquery.flexslider-min.js',
-                ['jquery'],
-                AWESOME_VERSION,
-                true
-            );
-            wp_register_script(
-                'ap-slider-options-js',
-                AWESOME_PLUGIN_URL . 'assets/flexslider/flexslider.js',
                 ['jquery'],
                 AWESOME_VERSION,
                 true
